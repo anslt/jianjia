@@ -1,0 +1,21 @@
+---
+title: "test function"
+output: html_document
+---
+```{r}
+rm(list=ls())
+setwd("~/stat243-final-project/")
+```
+
+
+```{r}
+# prepare the data
+data<-read.table("wines.csv",sep=",")
+```
+
+```{r}
+# here is the example in the paper
+review<-mfa(data,2:54)
+```
+
+
