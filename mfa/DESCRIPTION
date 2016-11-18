@@ -1,0 +1,16 @@
+Package: mfa
+Type: Package
+Title: Multiple factor analysis
+Version: 0.1
+Date: 2016-11-18
+Author: Dan Shen, Xin Wang, Yue You,
+Maintainer: Xin Wang <imwangxin@gmail.com>
+Description: This package does multiple factor analysis
+License: GPL-2
+LazyData: TRUE
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat
+RoxygenNote: 5.0.1
+VignetteBuilder: knitr

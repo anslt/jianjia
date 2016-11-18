@@ -1,5 +1,11 @@
-
-# data<-read.table("wines.csv",sep=",") 
+#' @title mfa
+#' @description a brief description
+#' @param data: data that need to be analysed
+#' @export
+#' @return result:...
+#' @examples \dontrun{
+#' an example}
+# data<-read.table("wines.csv",sep=",")
 
 # Function to compute MFA
 mfa<-function(data,sets,ncomps=NULL,center=TRUE,scale=TRUE){
@@ -28,7 +34,7 @@ mfa<-function(data,sets,ncomps=NULL,center=TRUE,scale=TRUE){
       j<-j+1
     }
   }
-  
+
     # if sets is a list of character vectors with the names of the active variables
     else if(is.character(sets)){
       raw<-NULL
@@ -61,9 +67,9 @@ mfa<-function(data,sets,ncomps=NULL,center=TRUE,scale=TRUE){
   }
   # scale the data
   selected_data<-scale(selected_data,center,scale)
-  
+
   # step 1 PCA of Each Data Table
-    # centering such that its mean=0 
+    # centering such that its mean=0
     y<-scale(selected_data,center = TRUE,FALSE)
     X<-NULL
     # normalizing each column such that the sum of the square values of all its elements is equal to 1
@@ -73,7 +79,7 @@ mfa<-function(data,sets,ncomps=NULL,center=TRUE,scale=TRUE){
       X<-cbind(X,y[,i]/sqrt(sum))
     }
     N <- N[N>0]
-    
+
     alpha<-numeric(length(N))
     raw<-NULL
     for (i in 1:length(N))
@@ -86,7 +92,7 @@ mfa<-function(data,sets,ncomps=NULL,center=TRUE,scale=TRUE){
       }
     # SVD of each table
       K<-X[,(sum[i]+1):(sum[i]+N[i])]
-    # the weight of a table is obtained from the first singular value of its PCA 
+    # the weight of a table is obtained from the first singular value of its PCA
       alpha[i]<-1/(svd(K)$d[1]^2)
       raw<-c(raw,rep(alpha[i],N[i]))
     }
@@ -97,8 +103,8 @@ mfa<-function(data,sets,ncomps=NULL,center=TRUE,scale=TRUE){
   P <- svd(X_new)$u / sqrt(1/nrow)
   Y <- 1/sqrt(raw)
   Y <- diag(Y)
-  Q <- Y %*% svd(X_new)$v  
-  
+  Q <- Y %*% svd(X_new)$v
+
   # 1) vector containing the eigenvalues
   d <- t(P) %*% M %*% X %*% A %*% Q
   eigen <- diag(d)[diag(d)>1E-05]^2
