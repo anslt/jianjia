@@ -6,7 +6,7 @@ This file is to test the mfa() function.
 
 ```{r}
 rm(list=ls())
-setwd("~/stat243-final-project/")
+setwd("~/Documents/mfaPackage/")
 ```
 
 
