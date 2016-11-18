@@ -3,7 +3,7 @@
 language: R
 sudo: required
 cache: packages
-warnings_are_errors:false
+warnings_are_errors: false
 
 Rscript -e 'install.packages("devtools");devtools::install_deps("mfa")'
 install:
