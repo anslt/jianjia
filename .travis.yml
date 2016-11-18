@@ -3,3 +3,8 @@
 language: R
 sudo: false
 cache: packages
+Rscript -e 'install.packages("devtools");devtools::install_deps("RPackage")'
+install:
+    - Rscript -e 'devtools::install_deps("mfa")'
+script:
+    - Rscript -e 'devtools::check("mfa")'
