@@ -2,6 +2,8 @@
 title: "test function"
 output: html_document
 ---
+This file is to test the mfa() function.
+
 ```{r}
 rm(list=ls())
 setwd("~/stat243-final-project/")
