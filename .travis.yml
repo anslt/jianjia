@@ -1,9 +1,11 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
-sudo: false
+sudo: required
 cache: packages
-Rscript -e 'install.packages("devtools");devtools::install_deps("RPackage")'
+warnings_are_errors:false
+
+Rscript -e 'install.packages("devtools");devtools::install_deps("mfa")'
 install:
     - Rscript -e 'devtools::install_deps("mfa")'
 script:
