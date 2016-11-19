@@ -4,8 +4,8 @@ language: R
 sudo: required
 cache: packages
 warnings_are_errors: false
-
-install:
-    - Rscript -e 'install.packages(c("devtools", "roxygen2","testthat")); devtools::install_deps("mfa")'
-script:
-    - Rscript -e 'devtools::check("mfa")'
+before_install: cd mfa
+#install:
+#    - Rscript -e 'install.packages(c("devtools", "roxygen2","testthat")); devtools::install_deps("mfa")'
+#script:
+#    - Rscript -e 'devtools::check("mfa")'
