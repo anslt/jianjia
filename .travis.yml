@@ -1,0 +1,12 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: R
+sudo: required
+cache: packages
+warnings_are_errors: false
+before_install: 
+  - cd mfa
+#install:
+#    - Rscript -e 'install.packages(c("devtools", "roxygen2","testthat")); devtools::install_deps("mfa")'
+#script:
+#    - Rscript -e 'devtools::check("mfa")'
